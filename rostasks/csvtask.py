@@ -56,9 +56,28 @@ class CsvTask(Rostask):
     def get_out_dir_name(self):
         return self.output_dir_name
 
+    def validate(self):
+        if not super().validate():
+            print("Basecheck failed")
+            return False
+        if self.system_id is None:
+            print("Missing system id")
+            return False
+        if self.odom_topic is None:
+            print("Missing odom topic")
+            return False
+        if self.stats_topic is None:
+            print("Missing stats topic")
+            return False
+
+        if self.system_id not in self.odom_topic or self.system_id not in self.stats_topic:
+            print("System id inconsistent with odom and stats topics")
+            return False
+        return True
+
     def initialize(self, project_name: str, run_name: str, bag_path: str, properties: Dict[str, str]):
         super().initialize(project_name, run_name, bag_path, properties)
-        self.system_id = properties[SYSTEM_ID]
+        self.system_id = properties.get(SYSTEM_ID)
         self.odom_topic = properties.get(ODOM_TOPIC)
         self.stats_topic = properties.get(STATS_TOPIC)
 

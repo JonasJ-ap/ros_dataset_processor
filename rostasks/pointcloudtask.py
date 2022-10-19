@@ -17,9 +17,25 @@ class PointcloudTask(Rostask):
     def get_out_dir_name(self):
         return self.output_dir_name
 
+    def validate(self):
+        if not super().validate():
+            print("Basecheck failed")
+            return False
+        if self.system_id is None:
+            print("System ID is not set")
+            return False
+        if not self.pointcloud_topic:
+            print("Pointcloud topic is not defined")
+            return False
+        if self.system_id not in self.pointcloud_topic:
+            print("system id inconsistent with pointcloud topic")
+            return False
+        return True
+
     def initialize(self, project_name: str, run_name: str, bag_path: str, properties: Dict[str, str]):
         super().initialize(project_name, run_name, bag_path, properties)
         self.pointcloud_topic = properties.get(POINTCLOUD_TOPIC)
+        self.system_id = properties.get(SYSTEM_ID)
         self.max_points = int(properties.get(MAX_POINTS, DEFAULT_MAX_POINTS))
 
     def execute(self):

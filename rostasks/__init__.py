@@ -41,7 +41,8 @@ class Rostask(ABC):
         if self.validate():
             self.execute()
         else:
-            print("uninitialized task")
+            print(
+                f"invalid properties, fail to execute {self.__class__.__name__}")
 
     @abstractmethod
     def execute(self):
