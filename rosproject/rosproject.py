@@ -22,7 +22,7 @@ class Project:
         self.processedRuns = []
 
     def validate(self):
-        if self.project_path == "" or self.run_to_bags == "" or self.project_name == "":
+        if self.project_path == "" or self.project_name == "":
             return False
         return True
 
