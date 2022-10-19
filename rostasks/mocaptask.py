@@ -93,7 +93,7 @@ class MocapTask(Rostask):
 
     def execute(self):
         print(
-            f"Execute Pointcloud task for {self.project_name}.{self.run_name}")
+            f"Execute Mocap task for {self.project_name}.{self.run_name}")
         os.makedirs(self.output_path, exist_ok=True)
         output_bag = os.path.join(
             self.output_path, f"{self.project_name}_{self.run_name}_mocap.bag")

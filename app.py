@@ -4,6 +4,7 @@ from rosproject.rosproject import Project
 from rostasks.csvtask import CsvTask
 from rostasks.pointcloudtask import PointcloudTask
 from rostasks.mocaptask import MocapTask
+from rostasks.rgbtask import RgbTask
 
 
 def get_properties(filename):
@@ -20,6 +21,8 @@ def get_tasks(properties):
         tasks.append(PointcloudTask())
     if properties['mocap_task'] == 'true':
         tasks.append(MocapTask())
+    if properties['rgb_task'] == 'true':
+        tasks.append(RgbTask())
     return tasks
 
 

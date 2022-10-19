@@ -11,11 +11,13 @@ odom_topic: "/cmu_rc3/aft_mapped_to_init_imu"
 stats_topic: "/cmu_rc3/super_odometry_stats"
 pointcloud_topic: "/cmu_rc3/velodyne_cloud_registered_imu"
 mocap_topic: "/mocap_data"
+rgb_topic: "/cmu_rc3/camera_1/image_raw"
 
 # pointcloud task properties
 max_points: "50000000"
 
 # tasks to run
-csv_task: "true"
-pointcloud_task: "true"
-mocap_task: "true"
+csv_task: "false"
+pointcloud_task: "false"
+mocap_task: "false"
+rgb_task: "true"

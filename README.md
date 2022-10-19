@@ -3,5 +3,5 @@
 ## Install dependencies
 ```bash
 pip install laspy, pandas, pyyaml
-pip install --extra-index-url https://rospypi.github.io/simple/ rospy rosbag roslz4 cv-bridge
+pip install --extra-index-url https://rospypi.github.io/simple/ rospy rosbag cv-bridge
 ```
