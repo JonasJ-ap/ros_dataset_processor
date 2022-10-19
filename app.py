@@ -3,6 +3,7 @@ import argparse
 from rosproject.rosproject import Project
 from rostasks.csvtask import CsvTask
 from rostasks.pointcloudtask import PointcloudTask
+from rostasks.mocaptask import MocapTask
 
 
 def get_properties(filename):
@@ -17,6 +18,8 @@ def get_tasks(properties):
         tasks.append(CsvTask())
     if properties['pointcloud_task'] == 'true':
         tasks.append(PointcloudTask())
+    if properties['mocap_task'] == 'true':
+        tasks.append(MocapTask())
     return tasks
 
 

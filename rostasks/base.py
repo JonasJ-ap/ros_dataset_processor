@@ -4,6 +4,7 @@ SYSTEM_ID = "system_id"
 ODOM_TOPIC = "odom_topic"
 STATS_TOPIC = "stats_topic"
 POINTCLOUD_TOPIC = "pointcloud_topic"
+MOCAP_TOPIC = "mocap_topic"
 
 # Miscellaneous
 MAX_POINTS = "max_points"

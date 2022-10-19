@@ -12,6 +12,7 @@ class Rostask(ABC):
         self.run_name = None
         self.bag_path = None
         self.properties = None
+        self.initialized = False
 
     @abstractmethod
     def get_out_dir_name(self):
@@ -31,8 +32,12 @@ class Rostask(ABC):
         self.bags = [os.path.join(self.bag_path, bag) for bag in os.listdir(
             self.bag_path) if bag.endswith(".bag")]
         self.output_path = os.path.join(self.bag_path, self.get_out_dir_name())
+        self.initialized = True
 
     def validate(self):
+        if not self.initialized:
+            print("Task not initialized")
+            return False
         if self.project_name is None or self.bag_path is None or self.properties is None or self.run_name is None:
             return False
         return True

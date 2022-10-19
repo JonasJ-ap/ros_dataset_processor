@@ -41,5 +41,5 @@ class PointcloudTask(Rostask):
         print(
             f"Execute Pointcloud task for {self.project_name}.{self.run_name}")
         os.makedirs(self.output_path, exist_ok=True)
-        exportPointCloud(self.bags, self.pointcloud_topic, f"{self.project_name}-{self.run_name}",
+        exportPointCloud(self.bags, self.pointcloud_topic, f"{self.project_name}_{self.run_name}",
                          self.output_path, self.max_points, None, 1, None, None, None)
