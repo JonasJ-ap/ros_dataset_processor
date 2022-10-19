@@ -1,0 +1,19 @@
+# please make sure everything is string
+
+# project basis
+project_name: "2022-08-03_rc1"
+project_path: "/Users/jonasjiang/Workspace/AirLab/dataset/2022-08-03_rc1"
+run_to_bags: "bags"
+
+# ros topics
+system_id: "cmu_rc1"
+odom_topic: "/cmu_rc1/aft_mapped_to_init_imu"
+stats_topic: "/cmu_rc1/super_odometry_stats"
+pointcloud_topic: "/cmu_rc1/velodyne_cloud_registered_imu"
+
+# pointcloud task properties
+max_points: "50000000"
+
+# tasks to run
+csv_task: "true"
+pointcloud_task: "true"
