@@ -15,13 +15,13 @@ def get_properties(filename):
 
 def get_tasks(properties):
     tasks = []
-    if properties['csv_task'] == 'true':
+    if properties.get("csv_task") == "true":
         tasks.append(CsvTask())
-    if properties['pointcloud_task'] == 'true':
+    if properties.get("pointcloud_task") == "true":
         tasks.append(PointcloudTask())
-    if properties['mocap_task'] == 'true':
+    if properties.get("mocap_task") == "true":
         tasks.append(MocapTask())
-    if properties['rgb_task'] == 'true':
+    if properties.get("rgb_task") == "true":
         tasks.append(RgbTask())
     return tasks
 
