@@ -1,6 +1,5 @@
 from rostasks import Rostask
 import pandas as pd
-import rosbag
 from typing import Dict
 import os
 from rosutils.baglas import exportPointCloud

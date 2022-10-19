@@ -1,4 +1,3 @@
-from distutils.command.config import config
 import yaml
 import argparse
 from rosproject.rosproject import Project
