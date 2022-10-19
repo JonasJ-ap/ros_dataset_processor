@@ -79,7 +79,9 @@ def exportVideo(paths, pathOut, targetTopic, speed, fps, printTimestamp, invertI
             video.write(cv_img)
             # cv2.imshow("Video preview", cv_img)
             cv2.waitKey(1)
-
-    video.release()
+    if video is not None:
+        video.release()
+    else:
+        print("No frames found")
     cv2.destroyAllWindows()
     return {"numFrames": frameCount}
