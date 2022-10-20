@@ -7,6 +7,7 @@ from rostasks.mocaptask import MocapTask
 from rostasks.rgbtask import RgbTask
 from rostasks.thermaltask import ThermalTask
 from rostasks.odomtask import OdomTask
+from rostasks.csvoldtask import CsvOldTask
 
 
 def get_properties(filename):
@@ -29,6 +30,8 @@ def get_tasks(properties):
         tasks.append(ThermalTask())
     if properties.get("odom_task") == "true":
         tasks.append(OdomTask())
+    if properties.get("csv_old_task") == "true":
+        tasks.append(CsvOldTask())
     return tasks
 
 

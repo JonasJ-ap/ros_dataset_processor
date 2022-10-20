@@ -9,33 +9,17 @@ from rostasks.base import STATS_TOPIC, ODOM_TOPIC, SYSTEM_ID
 
 def process_bag(bagPath, cum_list, odom_topic, stats_topic):
     with rosbag.Bag(bagPath, 'r') as current_bag:
-        sync_dict = {}
-        for topic, msg, t in current_bag.read_messages(topics=[stats_topic]):
-            temporal_dict = {}
-
-            temporal_dict['confidence_x'] = msg.uncertainty_x
-            temporal_dict['confidence_y'] = msg.uncertainty_y
-            temporal_dict['confidence_z'] = msg.uncertainty_z
-            temporal_dict['confidence_roll'] = msg.uncertainty_roll
-            temporal_dict['confidence_pitch'] = msg.uncertainty_pitch
-            temporal_dict['confidence_yaw'] = msg.uncertainty_yaw
-            temporal_dict['predication_source'] = msg.PredictionSource
-
-            sync_dict[str(msg.header.stamp.to_sec())] = temporal_dict
-
         for topic, msg, t in current_bag.read_messages(topics=[odom_topic]):
-
-            if str(msg.header.stamp.to_sec()) in sync_dict:
-                temporal_dict = sync_dict[str(msg.header.stamp.to_sec())]
-                temporal_dict['x'] = msg.pose.pose.position.x
-                temporal_dict['y'] = msg.pose.pose.position.y
-                temporal_dict['z'] = msg.pose.pose.position.z
-                temporal_dict['roll'] = msg.pose.pose.orientation.x
-                temporal_dict['pitch'] = msg.pose.pose.orientation.y
-                temporal_dict['yaw'] = msg.pose.pose.orientation.z
-                temporal_dict['time'] = t.to_sec()
-                temporal_dict['bag_time'] = str(msg.header.stamp.to_sec())
-                cum_list.append(temporal_dict)
+            temporal_dict = {}
+            temporal_dict['x'] = msg.pose.pose.position.x
+            temporal_dict['y'] = msg.pose.pose.position.y
+            temporal_dict['z'] = msg.pose.pose.position.z
+            temporal_dict['roll'] = msg.pose.pose.orientation.x
+            temporal_dict['pitch'] = msg.pose.pose.orientation.y
+            temporal_dict['yaw'] = msg.pose.pose.orientation.z
+            temporal_dict['time'] = t.to_sec()
+            temporal_dict['bag_time'] = str(msg.header.stamp.to_sec())
+            cum_list.append(temporal_dict)
         return cum_list
 
 
@@ -47,7 +31,7 @@ def process_multiple_bags(bagPath, df, odom_topic, stats_topic):
     return df
 
 
-class CsvTask(Rostask):
+class CsvOldTask(Rostask):
 
     def __init__(self):
         super().__init__()
@@ -82,9 +66,9 @@ class CsvTask(Rostask):
         self.stats_topic = properties.get(STATS_TOPIC)
 
     def execute(self):
-        print(f"Execute CSV task for {self.project_name}.{self.run_name}")
-        df = pd.DataFrame(columns=['time', 'bag_time', 'x', 'y', 'z', 'roll', 'pitch', 'yaw', 'confidence_x',
-                                   'confidence_y', 'confidence_z', 'confidence_roll', 'confidence_pitch', 'confidence_yaw', "predication_source"])
+        print(f"Execute CSV Old task for {self.project_name}.{self.run_name}")
+        df = pd.DataFrame(
+            columns=['time', 'bag_time', 'x', 'y', 'z', 'roll', 'pitch', 'yaw'])
         os.makedirs(self.output_path, exist_ok=True)
         df = process_multiple_bags(
             self.bags, df, self.odom_topic, self.stats_topic)

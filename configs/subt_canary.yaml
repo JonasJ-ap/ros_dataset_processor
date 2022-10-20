@@ -1,0 +1,25 @@
+# please make sure everything is string
+
+# project basis
+project_name: "subt_canary"
+project_path: "/media/jonasjiang/p4510/subt-final-ugv/final_competition/day1/canary1/raw_data"
+run_to_bags: ""
+
+# ros topics
+system_id: ""
+odom_topic: "/aft_mapped_to_init"
+stats_topic: "/super_odometry_stats"
+pointcloud_topic: "/velodyne_cloud_registered"
+
+# pointcloud task properties
+max_points: "50000000"
+
+# tasks to run
+# csv_task: "true"
+pointcloud_task: "true"
+# mocap_task: "true"
+# rgb_task: "true"
+# thermal_task: "true"
+# csv_old_task: "true"
+# odom_task: "true"
+
