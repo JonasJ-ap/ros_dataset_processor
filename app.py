@@ -6,6 +6,7 @@ from rostasks.pointcloudtask import PointcloudTask
 from rostasks.mocaptask import MocapTask
 from rostasks.rgbtask import RgbTask
 from rostasks.thermaltask import ThermalTask
+from rostasks.odomtask import OdomTask
 
 
 def get_properties(filename):
@@ -26,6 +27,8 @@ def get_tasks(properties):
         tasks.append(RgbTask())
     if properties.get("thermal_task") == "true":
         tasks.append(ThermalTask())
+    if properties.get("odom_task") == "true":
+        tasks.append(OdomTask())
     return tasks
 
 

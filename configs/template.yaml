@@ -15,5 +15,6 @@ pointcloud_topic: "/cmu_rc1/velodyne_cloud_registered_imu"
 max_points: "50000000"
 
 # tasks to run
-csv_task: "true"
-pointcloud_task: "true"
+# csv_task: "true"
+# pointcloud_task: "true"
+odom_task: "true"
