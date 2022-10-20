@@ -2,7 +2,7 @@
 
 # project basis
 project_name: "2022-08-08_Mil19"
-project_path: "/Users/jonasjiang/Workspace/AirLab/dataset/2022-08-19_mil19"
+project_path: "/media/jonasjiang/p4510/2022-08-08_Mil19_mocap"
 run_to_bags: ""
 
 # ros topics

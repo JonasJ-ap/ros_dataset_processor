@@ -43,7 +43,7 @@ def process_multiple_bags(bagPath, df, odom_topic, stats_topic):
     cum_list = []
     for bag in bagPath:
         cum_list = process_bag(bag, cum_list, odom_topic, stats_topic)
-    df = pd.concat([df, pd.DataFrame.from_records(cum_list)])
+    df = pd.concat([df, pd.DataFrame.from_records(cum_list)], sort=False)
     return df
 
 
