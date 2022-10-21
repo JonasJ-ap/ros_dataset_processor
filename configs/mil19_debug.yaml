@@ -1,8 +1,8 @@
 # please make sure everything is string
 
 # project basis
-project_name: "2022-08-08_Mil19"
-project_path: "/media/jonasjiang/p4510/2022-08-08_Mil19_mocap"
+project_name: "2022-08-08_Mil19_debug"
+project_path: "/Users/jonasjiang/Workspace/AirLab/dataset/2022-08-19_mil19"
 run_to_bags: ""
 
 # ros topics
@@ -19,8 +19,8 @@ max_points: "50000000"
 
 # tasks to run
 # csv_task: "true"
-# pointcloud_task: "true"
+pointcloud_task: "true"
 # mocap_task: "true"
 # rgb_task: "true"
 # thermal_task: "true"
-odom_task: "true"
+# odom_task: "true"
