@@ -4,7 +4,7 @@ from typing import Dict
 import os
 from rosutils.bagimg import exportVideo
 
-from rostasks.base import RGB_TOPIC, STATS_TOPIC, ODOM_TOPIC, SYSTEM_ID, POINTCLOUD_TOPIC, MAX_POINTS, DEFAULT_MAX_POINTS, RGB_TOPIC, THERMAL_TOPIC
+from rostasks.base import SYSTEM_ID, THERMAL_TOPIC, PRINT_TIMESTAMP, DEFAULT_PRINT_TIMESTAMP, INVERT_THERMAL, DEFAULT_INVERT_THERMAL
 
 
 class ThermalTask(Rostask):
@@ -32,6 +32,10 @@ class ThermalTask(Rostask):
         super().initialize(project_name, run_name, bag_path, properties)
         self.thermal_topic = properties.get(THERMAL_TOPIC)
         self.system_id = properties.get(SYSTEM_ID)
+        self.print_timestamp = properties.get(
+            PRINT_TIMESTAMP, DEFAULT_PRINT_TIMESTAMP)
+        self.invert_thermal = properties.get(
+            INVERT_THERMAL, DEFAULT_INVERT_THERMAL) == "true"
 
     def execute(self):
         print(
@@ -40,4 +44,4 @@ class ThermalTask(Rostask):
         out_video_path = os.path.join(
             self.output_path, f"{self.project_name}_{self.run_name}_thermal.mp4")
         exportVideo(self.bags, out_video_path,
-                    self.thermal_topic, 1, 30, None, False, None)
+                    self.thermal_topic, 1, 30, self.print_timestamp, self.invert_thermal, None)

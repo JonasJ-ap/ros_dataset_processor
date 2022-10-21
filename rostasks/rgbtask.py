@@ -4,7 +4,7 @@ from typing import Dict
 import os
 from rosutils.bagimg import exportVideo
 
-from rostasks.base import RGB_TOPIC, STATS_TOPIC, ODOM_TOPIC, SYSTEM_ID, POINTCLOUD_TOPIC, MAX_POINTS, DEFAULT_MAX_POINTS, RGB_TOPIC, THERMAL_TOPIC
+from rostasks.base import RGB_TOPIC, SYSTEM_ID, RGB_TOPIC, PRINT_TIMESTAMP, DEFAULT_PRINT_TIMESTAMP
 
 
 class RgbTask(Rostask):
@@ -35,6 +35,8 @@ class RgbTask(Rostask):
         super().initialize(project_name, run_name, bag_path, properties)
         self.rgb_topic = properties.get(RGB_TOPIC)
         self.system_id = properties.get(SYSTEM_ID)
+        self.print_timestamp = properties.get(
+            PRINT_TIMESTAMP, DEFAULT_PRINT_TIMESTAMP)
 
     def execute(self):
         print(
@@ -43,4 +45,4 @@ class RgbTask(Rostask):
         out_video_path = os.path.join(
             self.output_path, f"{self.project_name}_{self.run_name}_rgb.mp4")
         exportVideo(self.bags, out_video_path,
-                    self.rgb_topic, 1, 30, None, False, None)
+                    self.rgb_topic, 1, 30, self.print_timestamp, False, None)

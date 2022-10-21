@@ -10,7 +10,11 @@ THERMAL_TOPIC = "thermal_topic"
 
 # Miscellaneous
 MAX_POINTS = "max_points"
+PRINT_TIMESTAMP = "print_timestamp"
+INVERT_THERMAL = "invert_thermal"
 
 
 # default
 DEFAULT_MAX_POINTS = "50000000"
+DEFAULT_PRINT_TIMESTAMP = "false"
+DEFAULT_INVERT_THERMAL = "false"
