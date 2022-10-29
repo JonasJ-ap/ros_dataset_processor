@@ -1,0 +1,22 @@
+# please make sure everything is string
+
+# project basis
+project_name: "2022-09-24_NSH_multi_robot"
+project_path: "/media/jonasjiang/p4510/2022-09-24_NSH_multi_robots"
+run_to_bags: ""
+single_run_name: "rc1"
+
+# ros topics
+system_id: "cmu_rc1"
+odom_topic: "/cmu_rc1/aft_mapped_to_init_imu"
+
+# pointcloud task properties
+max_points: "50000000"
+
+# tasks to run
+# csv_task: "true"
+# pointcloud_task: "true"
+# mocap_task: "true"
+# rgb_task: "true"
+# thermal_task: "true"
+odom_task: "true"
