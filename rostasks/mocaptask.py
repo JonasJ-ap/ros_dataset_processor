@@ -54,6 +54,8 @@ def processed_multiple_bag(bagNames, outBagName, system_id, mocap_topic, groundt
                     header.stamp = t
                     point = [position.x, position.y, position.z, rgb]
                     points.append(point)
+                    if len(points) > 20:
+                        points.pop(0)
                     pointcloud = point_cloud2.create_cloud(
                         header, fields, points)
                     outBag.write(groundtruth_path_topic, pointcloud, t)
