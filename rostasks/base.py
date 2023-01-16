@@ -7,6 +7,8 @@ POINTCLOUD_TOPIC = "pointcloud_topic"
 MOCAP_TOPIC = "mocap_topic"
 RGB_TOPIC = "rgb_topic"
 THERMAL_TOPIC = "thermal_topic"
+IMU_TOPIC = "imu_topic"
+RAW_VELODYNE_TOPIC = "raw_velodyne_topic"
 
 # Miscellaneous
 MAX_POINTS = "max_points"

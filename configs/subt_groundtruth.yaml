@@ -1,14 +1,14 @@
 # please make sure everything is string
 
 # project basis
-project_name: "2022-10-09_NSH_multi_robot"
-project_path: "/media/jonasjiang/p4510/2022-10-09_NSH_multi_robots"
+project_name: "subt_groundtruth"
+project_path: "/media/jonasjiang/p4510/subt_localization"
 run_to_bags: ""
-single_run_name: "spot"
+
 
 # ros topics
-system_id: "cmu_sp1"
-odom_topic: "/cmu_sp1/aft_mapped_to_init_imu"
+system_id: ""
+odom_topic: "/aft_mapped_to_init_imu"
 
 # pointcloud task properties
 max_points: "50000000"
@@ -19,4 +19,4 @@ max_points: "50000000"
 # mocap_task: "true"
 # rgb_task: "true"
 # thermal_task: "true"
-odom_task: "true"
+groundtruth_task: "true"
