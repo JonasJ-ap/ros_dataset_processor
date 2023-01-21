@@ -8,6 +8,8 @@ from rostasks.rgbtask import RgbTask
 from rostasks.thermaltask import ThermalTask
 from rostasks.odomtask import OdomTask
 from rostasks.csvoldtask import CsvOldTask
+from rostasks.groundtruthtask import GroundTruthTask
+from rostasks.odomcolortask import OdomColorTask
 
 
 def get_properties(filename):
@@ -32,6 +34,10 @@ def get_tasks(properties):
         tasks.append(OdomTask())
     if properties.get("csv_old_task") == "true":
         tasks.append(CsvOldTask())
+    if properties.get("groundtruth_task") == "true":
+        tasks.append(GroundTruthTask())
+    if properties.get("odomcolor_task") == "true":
+        tasks.append(OdomColorTask())
     return tasks
 
 
