@@ -1,0 +1,24 @@
+# please make sure everything is string
+
+# project basis
+project_name: "2022-08-18_multi_floor"
+project_path: "/media/jonasjiang/p4510/2022-08-18_spot_multi_floor/run_4/bags/localization_result"
+run_to_bags: ""
+single_run_name: "path"
+
+# ros topics
+system_id: ""
+odom_topic: "/aft_mapped_to_init_imu"
+stats_topic: "/super_odometry_stats"
+pointcloud_topic: "/velodyne_cloud_registered_imu"
+
+# pointcloud task properties
+max_points: "50000000"
+
+# tasks to run
+# csv_task: "true"
+# pointcloud_task: "true"
+# mocap_task: "true"
+# rgb_task: "true"
+# thermal_task: "true"
+odom_task: "true"

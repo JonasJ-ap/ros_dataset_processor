@@ -31,6 +31,7 @@ class Rostask(ABC):
         self.properties = properties
         self.bags = [os.path.join(self.bag_path, bag) for bag in os.listdir(
             self.bag_path) if bag.endswith(".bag")]
+        self.bags.sort()
         self.output_path = os.path.join(self.bag_path, self.get_out_dir_name())
         self.initialized = True
 

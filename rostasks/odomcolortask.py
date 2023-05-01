@@ -72,7 +72,7 @@ class OdomColorTask(Rostask):
 
     def __init__(self):
         super().__init__()
-        self.output_dir_name = "odom_path_output"
+        self.output_dir_name = "odom_color_path_output"
 
     def get_out_dir_name(self):
         return self.output_dir_name

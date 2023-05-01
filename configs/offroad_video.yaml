@@ -1,0 +1,23 @@
+# please make sure everything is string
+
+# project basis
+project_name: "offroad"
+project_path: "/media/jonasjiang/p4510/offroad_test"
+run_to_bags: ""
+single_run_name: "videos"
+
+
+# ros topics
+system_id: ""
+rgb_topic: "/crl_rzr/flir_oryx/image_color"
+
+
+# pointcloud task properties
+max_points: "50000000"
+
+# tasks to run
+# csv_task: "true"
+# pointcloud_task: "true"
+# mocap_task: "true"
+rgb_task: "true"
+# thermal_task: "true"

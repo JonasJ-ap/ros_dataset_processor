@@ -2,26 +2,26 @@
 
 # project basis
 project_name: "subt_canary"
-project_path: "/media/jonasjiang/p4510/subt_localization/canary_0921"
+project_path: "/media/jonasjiang/p4510/subt_analysis"
 run_to_bags: ""
-single_run_name: "raw"
+single_run_name: "canary1_final"
 
 # ros topics
 system_id: ""
-odom_topic: "/aft_mapped_to_init_imu"
+odom_topic: "/aft_mapped_to_init"
 stats_topic: "/super_odometry_stats"
-pointcloud_topic: "/velodyne_cloud_registered_imu"
+pointcloud_topic: "/velodyne_cloud_registered"
 
 # pointcloud task properties
 max_points: "50000000"
 
 # tasks to run
 # csv_task: "true"
-# pointcloud_task: "true"
+pointcloud_task: "true"
 # mocap_task: "true"
 # rgb_task: "true"
 # thermal_task: "true"
-# csv_old_task: "true"
+csv_old_task: "true"
 # odom_task: "true"
 odomcolor_task: "true"
 
